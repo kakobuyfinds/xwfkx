@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#133c31">
+  <title>HooBuy spreadsheet | Product Finds, QC &amp; Shipping Guide</title>
+  <meta name="description" content="Browse HipoBuyFind product listings in this independent HooBuy spreadsheet guide. Compare CNY prices and check seller links, sizing, QC photos and shipping.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HooBuy spreadsheet | Product Finds, QC &amp; Shipping Guide">
+  <meta property="og:description" content="Search product listings by category and use the buying checklist to check source links, sizing, QC photos and total cost.">
+  <!-- Save as index.html. Google and Bing submission is pending. The public deployment URL is required to set the canonical URL and request indexing in Google Search Console and Bing Webmaster Tools. -->
+  <!-- Search review: hoospreadsheet.net/hoobuy-spreadsheet/ and hoobuyhub.com emphasize broad catalogs. rep.tools/guides/hoobuy-spreadsheet and hoobuysheets.net cover link checks. This page combines searchable source rows, listing IDs, a landed-cost worksheet and a QC checklist. Search position varies by location and was not independently confirmed in a localized Google results page. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17342a;
+      --muted: #4b6157;
+      --green: #133c31;
+      --cream: #f7f7ef;
+      --line: #d9e2d8;
+      --accent: #def096;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font: 1rem/1.6 system-ui, sans-serif;
+    }
+    a { color: inherit; }
+    a:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+      outline: 3px solid #866029;
+      outline-offset: 4px;
+    }
+    .wrap { width: min(100% - 2rem, 68rem); margin-inline: auto; }
+    .hero {
+      padding: clamp(3rem, 9vw, 7rem) 0;
+      background: radial-gradient(ellipse at top right, #31634b, transparent 60%), var(--green);
+      color: #fff;
+      text-align: center;
+    }
+    h1, h2, h3 { line-height: 1.12; }
+    h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.8rem, 8vw, 6rem); letter-spacing: -.045em; }
+    h2 { margin: 0 0 .75rem; font-size: clamp(1.6rem, 3.5vw, 2.4rem); letter-spacing: -.025em; }
+    h3 { margin: 0 0 .5rem; font-size: 1.1rem; }
+    p { margin: .65rem 0; }
+    .intro { max-width: 39rem; margin: 1rem auto 1.5rem; color: #edf5e9; }
+    .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; }
+    .button {
+      display: inline-block;
+      padding: .72rem 1.2rem;
+      border: 1px solid var(--accent);
+      border-radius: .55rem;
+      background: var(--accent);
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 750;
+    }
+    .button.secondary { background: transparent; color: white; border-color: #aac5b6; }
+    .button:hover { filter: brightness(.94); }
+    .disclosure { margin-top: 1rem; color: #e5f0e8; font-size: .875rem; }
+    main > section { margin-block: clamp(2.2rem, 6vw, 4rem); }
+    .muted, footer { color: var(--muted); }
+    .controls, .cost-fields {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: .85rem;
+      margin-block: 1.2rem;
+    }
+    label { display: grid; gap: .35rem; font-weight: 650; }
+    input, select {
+      min-width: 0;
+      width: 100%;
+      padding: .7rem;
+      border: 1px solid #788d81;
+      border-radius: .4rem;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+    }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: .75rem; }
+    table { width: 100%; min-width: 39rem; border-collapse: collapse; background: white; }
+    caption { background: #e7eee3; text-align: left; padding: .7rem 1rem; font-weight: 700; }
+    th, td { text-align: left; padding: .7rem 1rem; border-block-end: 1px solid var(--line); }
+    thead { background: #f2f6ee; }
+    tbody th { font-weight: 650; }
+    tbody tr:last-child > * { border-bottom: 0; }
+    .price { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
+    .card, .worksheet { padding: 1.15rem; border: 1px solid var(--line); border-radius: .75rem; background: white; }
+    .cost-fields { grid-template-columns: repeat(3, 1fr); }
+    output { font-weight: 750; }
+    details { padding: .8rem 0; border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; font-weight: 700; }
+    footer { padding-block: 1.25rem; border-top: 1px solid var(--line); font-size: .9rem; }
+    [hidden] { display: none !important; }
+    @media (max-width: 43rem) {
+      .controls, .grid { grid-template-columns: 1fr; }
+      .cost-fields { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "HooBuy spreadsheet",
+      "inLanguage": "en",
+      "description": "An independent buying guide with selected HipoBuyFind catalog rows, a quality-control checklist and a landed-cost worksheet."
+    }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/xwfkx/">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>HooBuy spreadsheet</h1>
+      <p class="intro">Search shoes and clothing from the HipoBuyFind catalog. Compare listed prices, then check the original seller link, measurements and shipping cost before ordering through an agent.</p>
+      <div class="actions">
+        <a class="button" href="https://hipobuyfind.com/">HooBuy spreadsheet</a>
+        <a class="button secondary" href="https://hipobuyfind.com/">Buy it now</a>
+      </div>
+      <p class="disclosure">Independent guide. Both buttons open the HipoBuyFind catalog homepage.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Product catalog</h2>
+      <p class="muted" id="catalog-note">Selected HipoBuyFind listings with shortened display titles. Use the item ID to identify the source row and check current price and availability. Prices shown are catalog references in Chinese yuan before shipping and fees.</p>
+
+      <div class="controls" id="catalog-controls" hidden>
+        <label for="search">Find a product
+          <input id="search" type="search" placeholder="Try fleece, canvas or 154917" aria-controls="catalog">
+        </label>
+        <label for="category">Category
+          <select id="category" aria-controls="catalog">
+            <option value="">All categories</option>
+            <option value="shoes">Shoes</option>
+            <option value="hoodies">Hoodies &amp; sweaters</option>
+            <option value="tees">T-shirts</option>
+            <option value="jackets">Jackets</option>
+          </select>
+        </label>
+      </div>
+      <p id="match-count" class="muted" role="status" hidden></p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable product catalog">
+        <table id="catalog" aria-describedby="catalog-note">
+          <caption>HipoBuyFind catalog selection</caption>
+          <thead>
+            <tr><th scope="col">Product</th><th scope="col">Category</th><th scope="col">Item ID</th><th scope="col" class="price">Listed price</th></tr>
+          </thead>
+          <tbody>
+            <tr data-category="shoes"><th scope="row">Cream Chunky Sneakers with Wide Laces</th><td>Shoes</td><td>148191</td><td class="price">¥350.00</td></tr>
+            <tr data-category="shoes"><th scope="row">Black Canvas Low-Top Sneakers with Gum Sole</th><td>Shoes</td><td>148188</td><td class="price">¥450.00</td></tr>
+            <tr data-category="shoes"><th scope="row">Black and Red Basketball Sneakers</th><td>Shoes</td><td>149969</td><td class="price">¥145.00</td></tr>
+            <tr data-category="hoodies"><th scope="row">Fleece-Lined Hoodie</th><td>Hoodies &amp; sweaters</td><td>154917</td><td class="price">¥170.00</td></tr>
+            <tr data-category="hoodies"><th scope="row">Crewneck Sweatshirt</th><td>Hoodies &amp; sweaters</td><td>154916</td><td class="price">¥150.00</td></tr>
+            <tr data-category="tees"><th scope="row">Graphic Short-Sleeve T-Shirt</th><td>T-shirts</td><td>154920</td><td class="price">¥105.00</td></tr>
+            <tr data-category="tees"><th scope="row">Short-Sleeve T-Shirt</th><td>T-shirts</td><td>154919</td><td class="price">¥105.00</td></tr>
+            <tr data-category="jackets"><th scope="row">Hooded Quick-Dry Jacket</th><td>Jackets</td><td>154851</td><td class="price">¥157.14</td></tr>
+            <tr data-category="jackets"><th scope="row">Lightweight Puffer Jacket</th><td>Jackets</td><td>152572</td><td class="price">¥268.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">Catalog source <a href="https://hipobuyfind.com/">HipoBuyFind</a></p>
+    </section>
+
+    <section aria-labelledby="checks-title">
+      <h2 id="checks-title">What to check before ordering</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Confirm the seller and variant</h3>
+          <p>Open the original marketplace listing and check that the item, seller, color and size match the catalog row. Confirm that your agent accepts the original link before paying.</p>
+        </article>
+        <article class="card">
+          <h3>Compare measurements and QC photos</h3>
+          <p>For clothing, compare flat measurements against a garment you own. If your agent offers warehouse photos, check the size label, color, seams and any visible damage before approving shipment.</p>
+        </article>
+        <article class="card">
+          <h3>Compare the full cost</h3>
+          <p>Ask which domestic delivery, service and payment charges are already included. Compare parcel quotes using both actual and volumetric weight, then allow for any taxes or duties.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="worksheet" aria-labelledby="cost-title">
+      <h2 id="cost-title">Landed-cost worksheet</h2>
+      <p id="cost-note" class="muted">Enter each charge once and use the same currency for every field. The total reflects the amounts you enter.</p>
+      <div class="cost-fields" id="cost-fields" aria-describedby="cost-note" hidden>
+        <label>Product price <input type="number" min="0" max="1000000000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+        <label>Domestic delivery <input type="number" min="0" max="1000000000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+        <label>Service and payment fees <input type="number" min="0" max="1000000000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+        <label>International shipping <input type="number" min="0" max="1000000000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+        <label>Taxes and duties <input type="number" min="0" max="1000000000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+      </div>
+      <p id="cost-result" hidden>Estimated total <output id="total" aria-live="polite">0.00</output></p>
+      <noscript><p>Add the product price, domestic delivery, service and payment fees, international shipping, and taxes or duties.</p></noscript>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">HooBuy spreadsheet FAQ</h2>
+      <details>
+        <summary>What is a HooBuy spreadsheet?</summary>
+        <p>It is a shopping reference for people comparing product links before ordering through a purchasing agent. A useful row identifies the item, shows a reference price and helps you locate the original seller listing.</p>
+      </details>
+      <details>
+        <summary>Can I use an item in this catalog with HooBuy?</summary>
+        <p>Find the item on HipoBuyFind using the title and item ID. If the listing provides the original marketplace URL, check that URL with HooBuy and confirm the variant before ordering.</p>
+      </details>
+      <details>
+        <summary>What does QC mean when shopping with an agent?</summary>
+        <p>QC means quality control. If the agent provides photos after the item reaches its warehouse, use them to compare the received variant and visible condition with your order.</p>
+      </details>
+      <details>
+        <summary>Why is the final cost different from the spreadsheet price?</summary>
+        <p>The listed price refers to the product. Domestic delivery, agent fees, currency conversion, international shipping and applicable import charges can change the amount you pay.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">HooBuy spreadsheet buying guide · Product listings sourced from HipoBuyFind.</div>
+  </footer>
+
+  <script>
+    const search = document.querySelector("#search");
+    const category = document.querySelector("#category");
+    const count = document.querySelector("#match-count");
+    const rows = [...document.querySelectorAll("#catalog tbody tr")];
+
+    function filterCatalog() {
+      const terms = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      let visible = 0;
+      for (const row of rows) {
+        const matchesCategory = !category.value || row.dataset.category === category.value;
+        const rowText = [...row.cells].map(cell => cell.textContent).join(" ").toLowerCase();
+        const matchesSearch = terms.every(term => rowText.includes(term));
+        row.hidden = !(matchesCategory && matchesSearch);
+        if (!row.hidden) visible++;
+      }
+      count.textContent = visible ? `${visible} of ${rows.length} listings shown` : "No listings match your filters.";
+    }
+
+    search.addEventListener("input", filterCatalog);
+    category.addEventListener("change", filterCatalog);
+    document.querySelector("#catalog-controls").hidden = false;
+    count.hidden = false;
+    filterCatalog();
+
+    const fields = document.querySelector("#cost-fields");
+    const amounts = [...fields.querySelectorAll("input")];
+    const total = document.querySelector("#total");
+    const format = new Intl.NumberFormat("en", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    fields.addEventListener("input", () => {
+      if (amounts.some(input => !input.validity.valid)) {
+        total.textContent = "Enter valid nonnegative amounts with up to two decimal places.";
+        return;
+      }
+      const cents = amounts.reduce((sum, input) => sum + Math.round((input.valueAsNumber || 0) * 100), 0);
+      total.textContent = format.format(cents / 100);
+    });
+
+    fields.hidden = false;
+    document.querySelector("#cost-result").hidden = false;
+  </script>
+</body>
+</html>
